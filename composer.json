@@ -1,6 +1,7 @@
 {
     "name": "masterfermin02/vici-admin-them",
     "description": "This is a vicidial theme to apply new design to vicidial",
+    "version": "1.0.0",
 	"keywords": ["vicidial","theme", "jquery", "vici-them", "vici-admin-them"],
     "homepage": "https://github.com/masterfermin02/vici-admin-them",
     "license": "MIT",
