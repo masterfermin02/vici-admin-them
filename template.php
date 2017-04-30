@@ -141,6 +141,7 @@
 	<!-- bootstrap-daterangepicker -->
     <script src="./vici-admin-them/theme/js/moment.min.js"></script>
     <script src="./vici-admin-them/theme/js/daterangepicker.js"></script>
+    <script src="./vici-admin-them/theme/js/jquery.dataTables.min.js"></script>
    
 <script src="../dividize.js"></script>
 <script src="../assets/js/knockout-3.3.0.js"></script>
