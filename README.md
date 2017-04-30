@@ -15,6 +15,11 @@ cd to your vicidial root dir
 ```
 	require("vici-admin-them/template.php");
 ```
+4. on each file you like the new design you need to add this line
+For example: user_status.php, AST_agent_time_sheet.php, user_stats.php
+```
+	require("vici-admin-them/template.php");
+```
 [![N|Solid](https://github.com/masterfermin02/vici-admin-them/blob/master/screen_shot/campaign.png)](https://github.com/masterfermin02/vici-admin-them/)
 [![N|Solid](https://github.com/masterfermin02/vici-admin-them/blob/master/screen_shot/dashboard.png)](https://github.com/masterfermin02/vici-admin-them/)
 [![N|Solid](http://viciexperts.com/img/portfolio/new-real-time-custom.png)](https://github.com/masterfermin02/vici-admin-them/)
