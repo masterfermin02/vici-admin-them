@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap -->
-    <link href="theme/css/bootstrap.min.css" rel="stylesheet">
-	<link type="text/css" rel="stylesheet" href="../assets/css/jquery-ui.min.css"  media="screen,projection"/>
+    <link href="./vici-admin-them/theme/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="theme/css/daterangepicker.css" rel="stylesheet">
+    <link href="./vici-admin-them/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="./vici-admin-them/theme/css/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     
-    <link href="theme/css/custom.css" rel="stylesheet">
+    <link href="./vici-admin-them/theme/css/custom.css" rel="stylesheet">
   </head>
   <body class="nav-md">
     <div class="container body">
@@ -29,7 +28,7 @@
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                <img src="theme/images/user.png" alt="..." class="img-circle profile_img">
+                <img src="./vici-admin-them/theme/images/user.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -129,18 +128,18 @@
                     <!-- End SmartWizard Content -->
 					
   <!-- jQuery -->
-    <script src="theme/js/jquery.min.js"></script>
+    <script src="./vici-admin-them/theme/js/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="theme/js/bootstrap.min.js"></script>
+    <script src="./vici-admin-them/theme/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="theme/js/fastclick.js"></script>
+    <script src="./vici-admin-them/theme/js/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="theme/js/nprogress.js"></script>
+    <script src="./vici-admin-them/theme/js/nprogress.js"></script>
     <!-- jQuery Smart Wizard -->
-    <script src="theme/js/jquery.smartWizard.js"></script>
+    <script src="./vici-admin-them/theme/js/jquery.smartWizard.js"></script>
 	<!-- bootstrap-daterangepicker -->
-    <script src="theme/js/moment.min.js"></script>
-    <script src="theme/js/daterangepicker.js"></script>
+    <script src="./vici-admin-them/theme/js/moment.min.js"></script>
+    <script src="./vici-admin-them/theme/js/daterangepicker.js"></script>
    
 <script src="../dividize.js"></script>
 <script src="../assets/js/knockout-3.3.0.js"></script>
@@ -270,6 +269,6 @@
 
     
    <!-- Custom Theme Scripts -->
-    <script src="theme/js/custom.js"></script>
+    <script src="./vici-admin-them/theme/js/custom.js"></script>
   </body>
 </html>
