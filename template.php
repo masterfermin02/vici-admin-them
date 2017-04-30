@@ -13,6 +13,7 @@
     <!-- Custom Theme Style -->
     
     <link href="./vici-admin-them/theme/css/custom.css" rel="stylesheet">
+	<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
   </head>
   <body class="nav-md">
     <div class="container body">
@@ -221,8 +222,15 @@
 	$(document).ready(function(){
 		var table = $('table');
 		table.addClass(function( index ) {
-		  return "table table-striped";
+		  return "table";
 		});
+		/*$('center table').each(function(index){
+			if($(this).find('thead').length == 0 && $(this).find('input').length == 0 && $(this).find('tbody tr').length > 0){
+				var tr = $(this).find('tr').first().attr('bgcolor','BLACK').html();
+				$(this).find('tr').first().remove();
+				$("<thead  >"+tr+"</thead>").prependTo($(this));
+			}
+		});*/
 		/*$('center table').each(function(index){
 			if($(this).find('thead').length == 0 && $(this).find('input').length == 0 && $(this).find('tbody tr').length > 0){
 				var tr = $(this).find('tr').first().attr('bgcolor','BLACK').html();
@@ -233,15 +241,26 @@
 		const MENU = 1;
 		const CONTENT = 3;
 		var mainTable = table.clone();
-		console.log(mainTable.get());
+		table.hide();
 		var menuOptions = $(mainTable[MENU]).find('tbody tr').filter(filterMenu).map(mapMenu).get();
 		var menus = menuOptions.filter(function(item){ return !item.subHead});
+		
 		menus.filter(function(item){ return item.isSelected}).forEach(function(item){ item.subMenu = menuOptions.filter(function(item){ return item.subHead}); });
 		$('#menu').html(menus.map(function(item){ 
 			return renderMenuItem(item); 
 		}).join(''));
+		
+		if(window.location.href.split('?')[1] != 'ADD=999999' && window.location.href.split('?')[1] != 'ADD=999998')
+		{
+			var listTable = $(mainTable[CONTENT]).find('table').filter(function(){ return $(this).find('input').length < 1; });
+			listTable.attr('width','100%');
+			var tr = listTable.find('tr').first().remove();
+			$("<thead  ></thead>").html(tr.get());
+			listTable.prepend($("<thead  ></thead>").html(tr.get()));
+			listTable.DataTable();
+		}
 		$('#main_content').html(mainTable[CONTENT]);
-		table.hide();
+
 		
 	});
 	
