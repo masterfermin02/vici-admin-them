@@ -6,12 +6,12 @@ cd to your vicidial root dir
 ```
 	git clone git@github.com:masterfermin02/vici-admin-them.git
 ```
-1- open admin.php
-2- look for vicidial auth
+1. open admin.php
+2. look for vicidial auth
 ```
 	if ($user_auth > 0)
 ```
-3-  add after the if $user_auth add
+3.  add after the if $user_auth add
 ```
 	require("vici-admin-them/template.php");
 ```
