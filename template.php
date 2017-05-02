@@ -251,7 +251,7 @@
 		$('#menu').html(menus.map(function(item){ 
 			return renderMenuItem(item); 
 		}).join(''));
-		if(noDataTable.indexOf(window.location.href.split('?')[1]) != -1)
+		if(noDataTable.indexOf(window.location.href.split('?')[1]) == -1)
 		{
 			var listTable = $(mainTable[CONTENT]).find('table').filter(function(){ return $(this).find('input').length < 1; });
 			listTable.attr('width','100%');
