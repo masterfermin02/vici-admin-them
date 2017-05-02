@@ -2,6 +2,11 @@
 This is a vicidial theme to apply new design to vicidial
 
 ### How to setup
+### Composer install
+```
+    composer require masterfermin02/vici-admin-them 
+```
+### Download with git
 cd to your vicidial root dir
 ```
 	git clone git@github.com:masterfermin02/vici-admin-them.git
@@ -23,6 +28,6 @@ For example: user_status.php, AST_agent_time_sheet.php, user_stats.php
 [![N|Solid](https://github.com/masterfermin02/vici-admin-them/blob/master/screen_shot/campaign.png)](https://github.com/masterfermin02/vici-admin-them/)
 [![N|Solid](https://github.com/masterfermin02/vici-admin-them/blob/master/screen_shot/dashboard.png)](https://github.com/masterfermin02/vici-admin-them/)
 [![N|Solid](http://viciexperts.com/img/portfolio/new-real-time-custom.png)](https://github.com/masterfermin02/vici-admin-them/)
-it's done, have fun and enjoy.
+###it's done, have fun and enjoy.
 
 ### We still working in progress...
