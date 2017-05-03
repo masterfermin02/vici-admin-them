@@ -15,13 +15,13 @@
     <link href="./vici-admin-them/theme/css/custom.css" rel="stylesheet">
 	<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
   </head>
-  <body class="nav-md">
-    <div class="container body">
+  <body class="nav-md" >
+    <div class="container body" style="display:none;" >
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="/vicidial/admin.php" class="site_title"><i class="fa fa-paw"></i> <span>Vicidial!</span></a>
+              <a href="./admin.php" class="site_title"><i class="fa fa-paw"></i> <span>Vicidial!</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -192,7 +192,8 @@
 				href: a.prop('href'),
 				subHead: isSubMenu(item),
 				subheadSelected: isSubMenuSelected(item),
-				isSelected: a.parent().hasClass('head_style_selected')
+				isSelected: a.parent().hasClass('head_style_selected'),
+				isReport: (a.text() == "  Reports ")
 			};
 	}
 	
@@ -215,30 +216,26 @@
 	
 	function buildMenu(item){
 		var subMenu = item.isSelected ? buildSubMenu(item) : '';
-		var href = item.isSelected ? '#' : 'href="'+item.href+'"';
+		var href = item.isSelected && !item.isReport ? '#' : 'href="'+item.href+'"';
 		return '<li class="'+( item.isSelected ? 'active' : '' )+'"><a '+href+' ><i class=""></i> '+item.a+'<span class="fa fa-chevron-down"></span></a>'+subMenu+'</li>';
+	}
+	
+	function msieversion() {
+
+		var ua = window.navigator.userAgent;
+		var msie = ua.indexOf("MSIE ");
+		return (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./));
 	}
 	
 
 	$(document).ready(function(){
+		if(msieversion())
+			return;
+		$('.container').show();
 		var table = $('table');
 		table.addClass(function( index ) {
 		  return "table";
 		});
-		/*$('center table').each(function(index){
-			if($(this).find('thead').length == 0 && $(this).find('input').length == 0 && $(this).find('tbody tr').length > 0){
-				var tr = $(this).find('tr').first().attr('bgcolor','BLACK').html();
-				$(this).find('tr').first().remove();
-				$("<thead  >"+tr+"</thead>").prependTo($(this));
-			}
-		});*/
-		/*$('center table').each(function(index){
-			if($(this).find('thead').length == 0 && $(this).find('input').length == 0 && $(this).find('tbody tr').length > 0){
-				var tr = $(this).find('tr').first().attr('bgcolor','BLACK').html();
-				$(this).find('tr').first().remove();
-				$("<thead style='background: black; color: white;' >"+tr+"</thead>").prependTo($(this));
-			}
-		});*/
 		const MENU = 1;
 		const CONTENT = 3;
 		var mainTable = table.clone();
@@ -246,20 +243,13 @@
 		console.log(table);
 		var menuOptions = $(mainTable[MENU]).find('tbody tr').filter(filterMenu).map(mapMenu).get();
 		var menus = menuOptions.filter(function(item){ return !item.subHead});
-		var noDataTable = ['ADD=999999', 'ADD=999998'];
+		var noDataTable = ['ADD=999999', 'ADD=999998', 'user='];
+		console.log('menu',menus);
 		menus.filter(function(item){ return item.isSelected}).forEach(function(item){ item.subMenu = menuOptions.filter(function(item){ return item.subHead}); });
 		$('#menu').html(menus.map(function(item){ 
 			return renderMenuItem(item); 
-		}).join(''));
-		if(noDataTable.indexOf(window.location.href.split('?')[1]) == -1)
-		{
-			var listTable = $(mainTable[CONTENT]).find('table').filter(function(){ return $(this).find('input').length < 1; });
-			listTable.attr('width','100%');
-			var tr = listTable.find('tr').first().remove();
-			$("<thead  ></thead>").html(tr.get());
-			listTable.prepend($("<thead  ></thead>").html(tr.get()));
-			listTable.DataTable();
-		}
+		}).join('')).prepend('<li class=""><a href="./admin.php">DashBoard<span class="fa fa-chevron-down"></span></a></li>');
+		
 		$('#main_content').html(mainTable[CONTENT]);
 		if(typeof window.location.href.split('?')[1] == 'undefined')
 		{
@@ -267,8 +257,24 @@
 			$('#main_content').append(mainTable[5]);
 			$('#main_content').append(mainTable[6]);
 		}
+		if(noDataTable.indexOf(window.location.href.split('?')[1]) == -1)
+		{
+			var listTable = $(mainTable[CONTENT]).find('table').filter(function(){ return $(this).find('input').length < 1; });
+			listTable.attr('width','100%');
+			var tr = listTable.find('tr').first().remove();
+			$("<thead  ></thead>").html(tr.get());
+			listTable.prepend($("<thead  ></thead>").html(tr.get()));
+			listTable.DataTable({
+				"lengthMenu": [[25, 50, -1], [25, 50, "All"]]
+			});
+		}
 		
-
+		if(window.location.href.indexOf('campaign_id') > 0)
+		{
+			$('#main_content').append(mainTable[4]);
+		}
+		
+		//$('#main_content').append(table);
 		
 	});
 	
