@@ -312,6 +312,7 @@ function KeyCode(event){
         $('#main_content').html(mainTable[2]);
         $('#table').append("</div>");
     //deleting main menu home, timeclock, chat, etc.
+    
         delete_tr()
 
     $('input[name=query_date], input[name=end_date]').val("").daterangepicker({
