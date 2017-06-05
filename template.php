@@ -318,7 +318,8 @@ function KeyCode(event){
         singleDatePicker: true,
         showDropdowns: true
     });
-    $("input[value=MODIFY], input[name=insertField]").click(function(){
+    $("input[name=insertField]").attr("onclick", "insertvalues()");
+    $("input[value=MODIFY]").click(function(){
       $("form").submit()
     })
     }else{
@@ -374,6 +375,10 @@ function KeyCode(event){
     document.getElementById("userform").submit();
     }
 
+  function insertvalues(){
+    var value = $("#selectedField").val()
+    $('textarea[name=script_text]').append("--A--"+value+"--B--")
+  }
     function launch_moh_chooser2(fieldname,stage,vposition)
     {
     var audiolistURL = "./non_agent_api.php";
