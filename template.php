@@ -55,16 +55,16 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              <a href='/vicidial/welcome.php' data-toggle="tooltip" data-placement="top" title="Home">
+                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              <a hreft='../agc/timeclock.php?referrer=admin' data-toggle="tooltip" data-placement="top" title="TimeClock">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              <a href='manager_chat_interface.php' data-toggle="tooltip" data-placement="top" title="Chat">
+                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout">
+              <a href='/vicidial/admin.php?force_logout=1' data-toggle="tooltip" data-placement="top" title="Logout">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -308,7 +308,7 @@ function KeyCode(event){
       $(".x_panel").css({"-webkit-transform":"scale(0.8,1)", "position": "relative", "left": "-110px"})
     }
     
-    if(noDataTable.indexOf(window.location.href.split('?')[1]) == 1 || url=="default" || url[0]=="31&SUB" || url[0]=="3511&menu_id" || url[0]=="3111&group_id" || url[0]=="10000000000" || url[1]=="311111111111111" || url[0]=="182000000000" || url[0]=="3111&group_id=AGENTDIRECT" || url[0]=="3511&menu_id=defaultlog" || url[0]=="5&user" || url[0]=="6&user" || url[0]=="user=" || url[0]=="130000000000"|| url[0]=="140000000000" || url[0]=="100000000000" || url[0]=="1000000000000" || url[0]=="311111111111111" || url[0]=="321111111111111" || url[0]=="1930000000" || url[0]=="170000000000" || url[0]=="160000000000" || url[0]=="192000000000" || url[0]=="999999" || url[0]=="331111111111111" || url[0]=="999994" || url[0]=="194111111111" || url[0]=="194000000000" || url[0]=="190000000000" || url[0]=="31&campaign_id" || url[0]=="10"){
+    if(noDataTable.indexOf(window.location.href.split('?')[1]) == 1 || url=="default" || url[0]=="31&SUB" || url[0]=="3511&menu_id" || url[0]=="3111&group_id" || url[0]=="10000000000" || url[1]=="311111111111111" || url[0]=="182000000000" || url[0]=="3111&group_id=AGENTDIRECT" || url[0]=="3511&menu_id=defaultlog" || url[0]=="5&user" || url[0]=="6&user" || url[0]=="user=" || url[0]=="130000000000"|| url[0]=="140000000000" || url[0]=="100000000000" || url[0]=="1000000000000" || url[0]=="311111111111111" || url[0]=="321111111111111" || url[0]=="1930000000" || url[0]=="170000000000" || url[0]=="160000000000" || url[0]=="192000000000" || url[0]=="999999" || url[0]=="331111111111111" || url[0]=="999994" || url[0]=="194111111111" || url[0]=="194000000000" || url[0]=="190000000000" || url[0]=="31&campaign_id" || url[0]=="10" || url[0]=="34&campaign_id"){
         $('#main_content').html(mainTable[2]);
        
     //deleting main menu home, timeclock, chat, etc.
