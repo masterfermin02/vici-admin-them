@@ -308,17 +308,17 @@ function KeyCode(event){
       $(".x_panel").css({"-webkit-transform":"scale(0.8,1)", "position": "relative", "left": "-110px"})
     }
     
-    if(noDataTable.indexOf(window.location.href.split('?')[1]) == 1 || url=="default" || url[0]=="31&SUB" || url[0]=="3511&menu_id" || url[0]=="3111&group_id" || url[0]=="10000000000" || url[1]=="311111111111111" || url[0]=="182000000000" || url[0]=="3111&group_id=AGENTDIRECT" || url[0]=="3511&menu_id=defaultlog" || url[0]=="5&user" || url[0]=="6&user" || url[0]=="user=" || url[0]=="130000000000"|| url[0]=="140000000000" || url[0]=="100000000000" || url[0]=="1000000000000" || url[0]=="311111111111111" || url[0]=="321111111111111" || url[0]=="1930000000" || url[0]=="170000000000" || url[0]=="160000000000" || url[0]=="192000000000" || url[0]=="999999" || url[0]=="331111111111111" || url[0]=="999994" || url[0]=="194111111111" || url[0]=="194000000000" || url[0]=="190000000000" || url[0]=="31&campaign_id" || url[0]=="10" || url[0]=="34&campaign_id"){
+    if(noDataTable.indexOf(window.location.href.split('?')[1]) == 1 || url=="default" || url[0]=="31&SUB" || url[0]=="3511&menu_id" || url[0]=="3111&group_id" || url[0]=="10000000000" || url[1]=="311111111111111" || url[0]=="182000000000" || url[0]=="3111&group_id=AGENTDIRECT" || url[0]=="3511&menu_id=defaultlog" || url[0]=="5&user" || url[0]=="6&user" || url[0]=="user=" || url[0]=="130000000000"|| url[0]=="140000000000" || url[0]=="100000000000" || url[0]=="1000000000000" || url[0]=="311111111111111" || url[0]=="321111111111111" || url[0]=="1930000000" || url[0]=="170000000000" || url[0]=="160000000000" || url[0]=="192000000000" || url[0]=="999999" || url[0]=="331111111111111" || url[0]=="999994" || url[0]=="194111111111" || url[0]=="194000000000" || url[0]=="190000000000" || url[0]=="31&campaign_id" || url[0]=="10" || url[0]=="3111111&script_id"){
+        
         $('#main_content').html(mainTable[2]);
-       
     //deleting main menu home, timeclock, chat, etc.
-
         delete_tr()
 
     $('input[name=query_date], input[name=end_date], input[name=begin_date]').val("").daterangepicker({
         singleDatePicker: true,
         showDropdowns: true
     });
+    $("input[name=insertField]").attr("onclick", "insertvalues()");
     $("input[value=MODIFY]").click(function(){
       $("form").submit()
     })
@@ -375,6 +375,10 @@ function KeyCode(event){
     document.getElementById("userform").submit();
     }
 
+  function insertvalues(){
+    var value = $("#selectedField").val()
+    $('textarea[name=script_text]').append("--A--"+value+"--B--")
+  }
     function launch_moh_chooser2(fieldname,stage,vposition)
     {
     var audiolistURL = "./non_agent_api.php";
