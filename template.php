@@ -309,8 +309,16 @@ function KeyCode(event){
     if(url[0]=="321111111111111"){
       $(".x_panel").css({"-webkit-transform":"scale(0.8,1)", "position": "relative", "left": "-110px"})
     }
-    
-    if(noDataTable.indexOf(window.location.href.split('?')[1]) == 1 || url=="default" || url[0]=="31&SUB" || url[0]=="3511&menu_id" || url[0]=="3111&group_id" || url[0]=="10000000000" || url[1]=="311111111111111" || url[0]=="182000000000" || url[0]=="3111&group_id=AGENTDIRECT" || url[0]=="3511&menu_id=defaultlog" || url[0]=="5&user" || url[0]=="6&user" || url[0]=="user=" || url[0]=="130000000000"|| url[0]=="140000000000" || url[0]=="100000000000" || url[0]=="1000000000000" || url[0]=="311111111111111" || url[0]=="321111111111111" || url[0]=="1930000000" || url[0]=="170000000000" || url[0]=="160000000000" || url[0]=="192000000000" || url[0]=="999999" || url[0]=="331111111111111" || url[0]=="999994" || url[0]=="194111111111" || url[0]=="194000000000" || url[0]=="190000000000" || url[0]=="31&campaign_id" || url[0]=="1111111" || url[0]=="10" || url[0]=="3111111&script_id"){
+
+    var urls = ["161111111111", "193111111111", "31&SUB", "3511&menu_id", "3111&group_id", "10000000000", "311111111111111", "182000000000", "3111&group_id=AGENTDIRECT", "3511&menu_id=defaultlog", "5&user", "6&user", "user=", "130000000000", "140000000000", "100000000000", "311111111111111", "321111111111111", "1930000000", "170000000000", "160000000000", "192000000000", "999999", "331111111111111", "999994", "194111111111", "194000000000", "190000000000", "31&campaign_id", "1111111", "130000000", "131111111111", "131111111", "131111111111", "141111111111", "10", "3111111&script_id", "140111111111", "111111111111"];
+    for(urlss in urls){
+      if(url[0]==urls[urlss]){
+        url = "default";
+        break;
+        }
+    }
+
+    if(noDataTable.indexOf(window.location.href.split('?')[1]) == 1 || url=="default"){
         
         $('#main_content').html(mainTable[2]);
     //deleting main menu home, timeclock, chat, etc.
@@ -325,6 +333,9 @@ function KeyCode(event){
       $("form").submit()
     })
     }else{
+      $('#main_content').prepend(mainTable[2]);
+      delete_tr()
+      $('tr tr').first().remove();
     var listTable = $(mainTable[CONTENT]).find('table').filter(function(){ return $(this).find('input').length < 1; });
       listTable.attr('width','100%');
       var tr = listTable.find('tr').first().remove();
