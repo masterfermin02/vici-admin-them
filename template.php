@@ -293,6 +293,8 @@ function KeyCode(event){
       url = url[1].split("ADD=")
        if(String(url[1])!="undefined"){
           url = url[1].split("=");
+        }else{
+          url = "default";
         }
      }else if(window.location.href.indexOf('admin_search_lead') > 0 || window.location.href.indexOf('campaign_id') > 0 || window.location.href.indexOf('user_stats') > 0 || window.location.href.indexOf('group_hourly_stats') > 0 || noDataTable.indexOf(window.location.href.split('?')[1]) == -1){
       url = "default";
@@ -308,7 +310,7 @@ function KeyCode(event){
       $(".x_panel").css({"-webkit-transform":"scale(0.8,1)", "position": "relative", "left": "-110px"})
     }
     
-    if(noDataTable.indexOf(window.location.href.split('?')[1]) == 1 || url=="default" || url[0]=="31&SUB" || url[0]=="3511&menu_id" || url[0]=="3111&group_id" || url[0]=="10000000000" || url[1]=="311111111111111" || url[0]=="182000000000" || url[0]=="3111&group_id=AGENTDIRECT" || url[0]=="3511&menu_id=defaultlog" || url[0]=="5&user" || url[0]=="6&user" || url[0]=="user=" || url[0]=="130000000000"|| url[0]=="140000000000" || url[0]=="100000000000" || url[0]=="1000000000000" || url[0]=="311111111111111" || url[0]=="321111111111111" || url[0]=="1930000000" || url[0]=="170000000000" || url[0]=="160000000000" || url[0]=="192000000000" || url[0]=="999999" || url[0]=="331111111111111" || url[0]=="999994" || url[0]=="194111111111" || url[0]=="194000000000" || url[0]=="190000000000" || url[0]=="31&campaign_id" || url[0]=="10" || url[0]=="3111111&script_id"){
+    if(noDataTable.indexOf(window.location.href.split('?')[1]) == 1 || url=="default" || url[0]=="31&SUB" || url[0]=="3511&menu_id" || url[0]=="3111&group_id" || url[0]=="10000000000" || url[1]=="311111111111111" || url[0]=="182000000000" || url[0]=="3111&group_id=AGENTDIRECT" || url[0]=="3511&menu_id=defaultlog" || url[0]=="5&user" || url[0]=="6&user" || url[0]=="user=" || url[0]=="130000000000"|| url[0]=="140000000000" || url[0]=="100000000000" || url[0]=="1000000000000" || url[0]=="311111111111111" || url[0]=="321111111111111" || url[0]=="1930000000" || url[0]=="170000000000" || url[0]=="160000000000" || url[0]=="192000000000" || url[0]=="999999" || url[0]=="331111111111111" || url[0]=="999994" || url[0]=="194111111111" || url[0]=="194000000000" || url[0]=="190000000000" || url[0]=="31&campaign_id" || url[0]=="1111111" || url[0]=="10" || url[0]=="3111111&script_id"){
         
         $('#main_content').html(mainTable[2]);
     //deleting main menu home, timeclock, chat, etc.
@@ -376,8 +378,12 @@ function KeyCode(event){
     }
 
   function insertvalues(){
-    var value = $("#selectedField").val()
-    $('textarea[name=script_text]').append("--A--"+value+"--B--")
+    var cursor = $('textarea[name="script_text"]').prop("selectionStart");
+     var t = $('textarea[name="script_text"]').val()
+     str1 = t.substring(0, cursor)
+     str2 = t.substring(cursor)
+    var value = $("#selectedField").val();
+    $('textarea[name="script_text"]').val(str1 + "--A--"+value+"--B--"+str2)
   }
     function launch_moh_chooser2(fieldname,stage,vposition)
     {
