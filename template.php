@@ -155,7 +155,7 @@
 input[name="search_archived_data"]{
   margin-top: 30px
 }
-
+#audio_chooser_span iframe{margin-top:10px}
 #audio_chooser_span{position:fixed;left:0;right:0;margin-left:auto;margin-right:auto;background: #fff;width:740px;height: 440px;bottom:50px;box-shadow:0px 0px 20px rgba(0,0,0,0.5);z-index:1;display: none}
 #audio_chooser_span a{position: absolute;right:20px;top:5px;font-size:22px}
 
@@ -321,17 +321,18 @@ function KeyCode(event){
     if(noDataTable.indexOf(window.location.href.split('?')[1]) == 1 || url=="default"){
         
         $('#main_content').html(mainTable[2]);
-    //deleting main menu home, timeclock, chat, etc.
-        delete_tr()
+        delete_tr(); //deleting main menu home, timeclock, chat, etc.
 
     $('input[name=query_date], input[name=end_date], input[name=begin_date]').val("").daterangepicker({
         singleDatePicker: true,
         showDropdowns: true
     });
+
     $("input[name=insertField]").attr("onclick", "insertvalues()");
     $("input[value=MODIFY]").click(function(){
       $("form").submit()
-    })
+    });
+
     }else{
       $('#main_content').prepend(mainTable[2]);
       delete_tr()
@@ -394,7 +395,8 @@ function KeyCode(event){
      str1 = t.substring(0, cursor)
      str2 = t.substring(cursor)
     var value = $("#selectedField").val();
-    $('textarea[name="script_text"]').val(str1 + "--A--"+value+"--B--"+str2)
+    $('textarea[name="script_text"]').val(str1 + "--A--"+value+"--B--"+str2);
+    $('textarea[name="script_text"]').focus()
   }
     function launch_moh_chooser2(fieldname,stage,vposition)
     {
@@ -434,7 +436,7 @@ function KeyCode(event){
           </div>
         </div>
         <!-- /page content -->
-        <div id="audio_chooser_span"><a onclick="$('#audio_chooser_span').css({'display': 'none', 'cursor': 'pointer'})">X</a><div></div><load></load></div><!--cuadro de dialogo de algunas pantallas-->
+        <div id="audio_chooser_span"><a onclick="$('#audio_chooser_span').css({'display': 'none', 'cursor': 'pointer'})">click here or press (ESC) X</a><div></div><load></load></div><!--cuadro de dialogo de algunas pantallas-->
 
 <!-- footer content -->
         <footer>
