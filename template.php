@@ -150,6 +150,9 @@
    
 <script src="../dividize.js"></script>
 <script src="../assets/js/knockout-3.3.0.js"></script>
+<!-- urlss urls -->
+<script src="./vici-admin-them/theme/functions_urls/urls.js"></script>
+<script src="./vici-admin-them/theme/functions_urls/vici_functions.js"></script>
 <style>
 #vicidial_report{width:570px;}
 input[name="search_archived_data"]{
@@ -288,40 +291,15 @@ function KeyCode(event){
 			$('#main_content').append(mainTable[6]);
 		}
 
-     url = document.URL.split("?")
-     if(String(url[1])!="undefined"){
-      url = url[1].split("ADD=")
-       if(String(url[1])!="undefined"){
-          url = url[1].split("=");
-        }else{
-          url = "default";
-        }
-     }else if(window.location.href.indexOf('admin_search_lead') > 0 || window.location.href.indexOf('campaign_id') > 0 || window.location.href.indexOf('user_stats') > 0 || window.location.href.indexOf('group_hourly_stats') > 0 || noDataTable.indexOf(window.location.href.split('?')[1]) == -1){
-      url = "default";
-
-     }
-        
-     if(window.location.href.indexOf('admin_modify_lead') > 0 || window.location.href.indexOf('admin_listloader_fourth_gen') > 0)
-    {      
-      $('#main_content').append(mainTable[1]);
-      
-    }
-    if(url[0]=="321111111111111"){
-      $(".x_panel").css({"-webkit-transform":"scale(0.8,1)", "position": "relative", "left": "-110px"})
-    }
-    //request url values
-    var urls = ["999999&stage", "999994", "161111111111", "193111111111", "31&SUB", "3511&menu_id", "3111&group_id", "10000000000", "311111111111111", "182000000000", "3111&group_id=AGENTDIRECT", "3511&menu_id=defaultlog", "5&user", "6&user", "user=", "130000000000", "140000000000", "100000000000", "311111111111111", "321111111111111", "1930000000", "170000000000", "160000000000", "192000000000", "999999", "331111111111111", "999994", "194111111111", "194000000000", "190000000000", "31&campaign_id", "1111111", "130000000", "131111111111", "131111111", "131111111111", "141111111111", "10", "3111111&script_id", "140111111111", "111111111111"];
-    for(urlss in urls){
-      if(url[0]==urls[urlss]){
-        url = "default";
-        break;
-        }
-    }
+    
+    // some display content information for the template
+   // here would be a for default data for urls
+   // go to vici-admin-them/functions_urls carpet to see with more detail.
 
     if(noDataTable.indexOf(window.location.href.split('?')[1]) == 1 || url=="default"){
         
         $('#main_content').html(mainTable[2]);
-        delete_tr(); //deleting main menu home, timeclock, chat, etc.
+        delete_tr(); //go to vici-admin-them/functions_urls carpet to see with more detail.
 
     $('input[name=query_date], input[name=end_date], input[name=begin_date]').val("").daterangepicker({
         singleDatePicker: true,
@@ -337,23 +315,23 @@ function KeyCode(event){
       $('#main_content').prepend(mainTable[2]);
       delete_tr()
       $('tr tr').first().remove();
+    
     var listTable = $(mainTable[CONTENT]).find('table').filter(function(){ return $(this).find('input').length < 1; });
       listTable.attr('width','100%');
-      var tr = listTable.find('tr').first().remove();
+    
+    var tr = listTable.find('tr').first().remove();
       $("<tbody></tbody>").html(tr.get());
       listTable.prepend($("<thead></thead>").html(tr.get()));
       listTable.DataTable({
         "lengthMenu": [[25, 50, -1], [25, 50, "All"]]
-      });
+       });
       
-      // document.write(t)
-      
-
        $('form[name="userform"]').attr("action", "admin.php")
        $('form[name="userform"] input[value="SUBMIT"]').attr("onclick", "user_submit2()")
     }
 
 
+// changing audio, moh ,voicemail functions for all items//
     $("a").each(function(){
     if($(this).html()==="audio chooser"){
         var att = $(this).attr('href');  
@@ -373,60 +351,6 @@ function KeyCode(event){
     
 	});
   
-  function delete_tr(){
-    $('tbody tr td, tbody tr').first().remove()
-    $('tbody tr td[bgcolor]').first().remove()
-  }
-  function chooser(id, att, func, func2){
-     att2 = att.replace(func, func2);
-      $(id).attr("href", att2)
-  }
-
-	function user_submit2()
-    {
-    var user_field = document.getElementById("user");
-    user_field.disabled = false;
-    document.getElementById("userform").submit();
-    }
-
-  function insertvalues(){
-    var cursor = $('textarea[name="script_text"]').prop("selectionStart");
-     var t = $('textarea[name="script_text"]').val()
-     str1 = t.substring(0, cursor)
-     str2 = t.substring(cursor)
-    var value = $("#selectedField").val();
-    $('textarea[name="script_text"]').val(str1 + "--A--"+value+"--B--"+str2);
-    $('textarea[name="script_text"]').focus()
-  }
-    function launch_moh_chooser2(fieldname,stage,vposition)
-    {
-    var audiolistURL = "./non_agent_api.php";
-    var audiolistQuery = "source=admin&function=moh_list&user=" + user + "&pass=" + pass + "&format=selectframe&stage=" + stage + "&comments=" + fieldname;
-    var Iframe_content = '<IFRAME SRC="' + audiolistURL + '?' + audiolistQuery + '"  style="width:700;height:440;background-color:white;" scrolling="NO" frameborder="0" allowtransparency="true" id="audio_chooser_frame' + epoch + '" name="audio_chooser_frame" width="740" height="460" STYLE="z-index:2"> </IFRAME>';
-      $("#audio_chooser_span div").html(Iframe_content)
-      $("#audio_chooser_span").css("display", "block")
-    } 
-
-    function launch_vm_chooser2(fieldname,stage,vposition)
-    {
-    var audiolistURL = "./non_agent_api.php";
-    var audiolistQuery = "source=admin&function=vm_list&user=" + user + "&pass=" + pass + "&format=selectframe&stage=" + stage + "&comments=" + fieldname;
-    var Iframe_content = '<IFRAME SRC="' + audiolistURL + '?' + audiolistQuery + '"  style="width:740;height:440;background-color:white;" scrolling="NO" frameborder="0" allowtransparency="true" id="audio_chooser_frame' + epoch + '" name="audio_chooser_frame" width="740" height="460" STYLE="z-index:2"> </IFRAME>';
-
-      $("#audio_chooser_span div").html(Iframe_content)
-      $("#audio_chooser_span").css("display", "block")
-    } 
-
-
-    function audio_chooser2(fieldname,stage,vposition)
-    {
-    var audiolistURL = "./non_agent_api.php";
-    var audiolistQuery = "source=admin&function=sounds_list&user=" + user + "&pass=" + pass + "&format=selectframe&stage=" + stage + "&comments=" + fieldname;
-    var Iframe_content = '<IFRAME SRC="' + audiolistURL + '?' + audiolistQuery + '"  style="width:740;height:440;background-color:white;" scrolling="NO" frameborder="0" allowtransparency="true" id="audio_chooser_frame' + epoch + '" name="audio_chooser_frame" width="740" height="460" STYLE="z-index:2"> </IFRAME>';
-
-      $("#audio_chooser_span div").html(Iframe_content)
-      $("#audio_chooser_span").css("display", "block")
-    }
 </script>
 
 </div>
