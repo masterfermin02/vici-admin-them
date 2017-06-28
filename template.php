@@ -337,6 +337,7 @@ function KeyCode(event){
         var att = $(this).attr('href');  
         chooser($(this), att, "launch_chooser", "audio_chooser2");
       }
+      
       if($(this).html()=="moh chooser"){
         var att = $(this).attr('href');  
         chooser($(this), att, "launch_moh_chooser", "launch_moh_chooser2");      
