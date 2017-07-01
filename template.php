@@ -286,36 +286,72 @@ function KeyCode(event){
 
 		if(typeof window.location.href.split('?')[1] == 'undefined')
 		{
+
 			$('#main_content').append(mainTable[4]);
 			$('#main_content').append(mainTable[5]);
 			$('#main_content').append(mainTable[6]);
 		}
+		//admin.php default data.
+		if(typeof window.location.href.split('?')[1] == 'undefined' && window.location.href.indexOf('admin') > 0){
+			url='default';
+		}
 
-    
+
+
     // some display content information for the template
+    if(url[0]=='7111111&script_id'){
+   		$('font, table, tr').each(function(){
+   			if($(this).text()=='Preview Script:'){
+   				alert('asdas')
+   			}
+          var info = $(this).html()
+          $('.x_panel').html(info)
+   		})
+   		$('#audio_chooser_span').remove()
+	}
+
+	$("input[value=MODIFY], input[value=SUBMIT]").click(function(){
+      $("form").submit()
+      });
+
+	//call_Report error
+		if(url[0]=='d' && String(main_content[CONTENT])=="undefined"){
+			alert('There are no inbound calls during this time period for these parameters')
+		}
    // here would be a for default data for urls
    // go to vici-admin-them/functions_urls carpet to see with more detail.
+  //request url values
+    var urls = ["3&user", "311111111111&server_id", "13111111111", "12", "11", "999999&stage", "999994", "161111111111", "193111111111", "31&SUB", "3511&menu_id", "3111&group_id", "10000000000", "182000000000", "3111&group_id=AGENTDIRECT", "3511&menu_id=defaultlog", "5&user", "6&user", "user=", "311111111111111", "321111111111111", "1930000000", "999999", "331111111111111", "999994", "194111111111", "194000000000", "190000000000", "31&campaign_id", "1111111", "131111111111", "131111111", "141111111111", "3111111&script_id", "140111111111", "111111111111", "182111111111", "311111111111111#screen_colors", "34&campaign_id", "311&list_id", "31111111&lead_filter_id", "3311&did_id"];
+
+// getting default display to those urls
+ for(urlss in urls){
+      if(url[0]==urls[urlss]){
+        url = "default";
+        break;
+        }
+    }
 
     if(noDataTable.indexOf(window.location.href.split('?')[1]) == 1 || url=="default"){
-        
+
         $('#main_content').html(mainTable[2]);
         delete_tr(); //go to vici-admin-them/functions_urls carpet to see with more detail.
 
-    $('input[name=query_date], input[name=end_date], input[name=begin_date]').val("").daterangepicker({
-        singleDatePicker: true,
-        showDropdowns: true
-    });
-
     $("input[name=insertField]").attr("onclick", "insertvalues()");
-    $("input[value=MODIFY]").click(function(){
-      $("form").submit()
-    });
 
     }else{
-      $('#main_content').prepend(mainTable[2]);
-      delete_tr()
-      $('tr tr').first().remove();
-    
+        //url_id of lists for menu2 
+      var list = ['100000000000', '100000000', '130000000', '130000000000', '140000000000', '1000000000000', '180000000000', '193000000000', '160000000000', '192000000000', '170000000000', '10'];
+      //////////////////////////////////////
+      for(lists in list){
+        if(url[0]==list[lists]){
+          $('#main_content').prepend(mainTable[2]);
+          delete_tr()
+           $('tr tr').first().remove();   
+          break;
+          }
+      }
+
+      //////////////////////////////////////
     var listTable = $(mainTable[CONTENT]).find('table').filter(function(){ return $(this).find('input').length < 1; });
       listTable.attr('width','100%');
     
@@ -327,10 +363,17 @@ function KeyCode(event){
        });
       
        $('form[name="userform"]').attr("action", "admin.php")
-       $('form[name="userform"] input[value="SUBMIT"]').attr("onclick", "user_submit2()")
+       $('form[name="userform"] input[value="SUBMIT"]').attr("onclick", "user_submit2()");
     }
 
-
+//datepicker function
+ $('input[name=query_date], input[name=end_date], input[name=begin_date], input[name=query_date], input[name=end_date], input[name=begin_date] ').val("").daterangepicker({
+ 	locale: {
+      format: 'YYYY-MM-DD'
+    },
+        singleDatePicker: true,
+        showDropdowns: true,
+    });
 // changing audio, moh ,voicemail functions for all items//
     $("a").each(function(){
     if($(this).html()==="audio chooser"){
