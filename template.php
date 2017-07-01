@@ -301,13 +301,11 @@ function KeyCode(event){
     // some display content information for the template
     if(url[0]=='7111111&script_id'){
    		$('font, table, tr').each(function(){
-   			if($(this).text()=='Preview Script:'){
-   				alert('asdas')
-   			}
           var info = $(this).html()
           $('.x_panel').html(info)
    		})
-   		$('#audio_chooser_span').remove()
+      $('#audio_chooser_span').remove()
+   		$('font').css({'color': '#fff'})
 	}
 
 	$("input[value=MODIFY], input[value=SUBMIT]").click(function(){
