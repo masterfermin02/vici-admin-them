@@ -7,7 +7,7 @@
           url = "default";
         }
      }else{
-      var url_index = ['admin_search_lead', 'campaign_id', 'user_stats', 'group_hourly_stats', 'audio_store'];
+      var url_index = ['admin_search_lead', 'campaign_id', 'user_stats', 'group_hourly_stats', 'audio_store', 'admin'];
       for(indexof in url_index){
          if(window.location.href.indexOf(url_index[indexof]) > 0){
               url = 'default';

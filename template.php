@@ -296,24 +296,41 @@ function KeyCode(event){
 			url='default';
 		}
 
-
+//datepicker function
+ $('input[name=query_date], input[name=end_date], input[name=begin_date], input[name=query_date], input[name=end_date], input[name=begin_date] ').val("").daterangepicker({
+  locale: {
+      format: 'YYYY-MM-DD'
+    },
+        singleDatePicker: true,
+        showDropdowns: true,
+    });
 
     // some display content information for the template
     if(url[0]=='7111111&script_id'){
-   		$('font, table, tr').each(function(){
+      $('font, table, tr').each(function(){
           var info = $(this).html()
           $('.x_panel').html(info)
-   		})
+      })
       $('#audio_chooser_span').remove()
-   		$('font').css({'color': '#fff'})
-	}
-
+      $('font').css({'color': '#fff'})
+  }
+  //////////////////////////////////
+    $('td').each(function(){
+          var info = $(this).first().text()
+          if(info=='Filter ID: '){
+            $('#main_content').html(mainTable[2]);
+            delete_tr();
+          }
+      })
+  //////////////////////////////////
 	$("input[value=MODIFY], input[value=SUBMIT]").click(function(){
       $("form").submit()
       });
 
 	//call_Report error
-		if(url[0]=='d' && String(main_content[CONTENT])=="undefined"){
+    db = document.URL.split("?")
+    db = db[1].split("=")
+		if(db[0]=='DB' && String(main_content[CONTENT])=="undefined"){
 			alert('There are no inbound calls during this time period for these parameters')
 		}
    // here would be a for default data for urls
@@ -364,14 +381,7 @@ function KeyCode(event){
        $('form[name="userform"] input[value="SUBMIT"]').attr("onclick", "user_submit2()");
     }
 
-//datepicker function
- $('input[name=query_date], input[name=end_date], input[name=begin_date], input[name=query_date], input[name=end_date], input[name=begin_date] ').val("").daterangepicker({
- 	locale: {
-      format: 'YYYY-MM-DD'
-    },
-        singleDatePicker: true,
-        showDropdowns: true,
-    });
+
 // changing audio, moh ,voicemail functions for all items//
     $("a").each(function(){
     if($(this).html()==="audio chooser"){
