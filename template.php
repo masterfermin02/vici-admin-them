@@ -315,13 +315,7 @@ function KeyCode(event){
       $('font').css({'color': '#fff'})
   }
   //////////////////////////////////
-    $('td').each(function(){
-          var info = $(this).first().text()
-          if(info=='Filter ID: '){
-            $('#main_content').html(mainTable[2]);
-            delete_tr();
-          }
-      })
+    
   //////////////////////////////////
 	$("input[value=MODIFY], input[value=SUBMIT]").click(function(){
       $("form").submit()
@@ -329,7 +323,9 @@ function KeyCode(event){
 
 	//call_Report error
     db = document.URL.split("?")
-    db = db[1].split("=")
+    if(String(db[1])!='undefined'){
+      db = db[1].split("=")
+    }
 		if(db[0]=='DB' && String(main_content[CONTENT])=="undefined"){
 			alert('There are no inbound calls during this time period for these parameters')
 		}
