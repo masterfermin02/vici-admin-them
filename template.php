@@ -297,7 +297,18 @@ function KeyCode(event){
 		}
 
 //datepicker function
- $('input[name=query_date], input[name=end_date], input[name=begin_date], input[name=query_date], input[name=end_date], input[name=begin_date] ').val("").daterangepicker({
+
+ $('#tcalico_0, #tcalico_1').attr('id', 'date')
+ $('#date').attr('id', 'date2')
+
+ $('#date').click(function(){
+  $('input[name=end_date]').focus()
+ }) 
+ $('#date2').click(function(){
+  $('input[name=query_date]').focus()
+ })
+
+ $('input[name=query_date], input[name=end_date], input[name=begin_date], input[name=query_date], input[name=end_date], input[name=begin_date]').val("").daterangepicker({
   locale: {
       format: 'YYYY-MM-DD'
     },
