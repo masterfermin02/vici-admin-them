@@ -337,7 +337,8 @@ function KeyCode(event){
     if(String(db[1])!='undefined'){
       db = db[1].split("=")
     }
-		if(db[0]=='DB' && String(main_content[CONTENT])=="undefined"){
+
+		if(db[1]=='&run_export' && db[0]=='DB'){
 			alert('There are no inbound calls during this time period for these parameters')
 		}
    // here would be a for default data for urls
