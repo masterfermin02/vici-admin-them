@@ -19,3 +19,4 @@
  if(url[0]=="321111111111111"){
       $(".x_panel").css({"-webkit-transform":"scale(0.8,1)", "position": "relative", "left": "-110px"})
     }
+

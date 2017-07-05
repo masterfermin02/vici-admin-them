@@ -161,7 +161,7 @@ input[name="search_archived_data"]{
 #audio_chooser_span iframe{margin-top:10px}
 #audio_chooser_span{position:fixed;left:0;right:0;margin-left:auto;margin-right:auto;background: #fff;width:740px;height: 440px;bottom:50px;box-shadow:0px 0px 20px rgba(0,0,0,0.5);z-index:1;display: none}
 #audio_chooser_span a{position: absolute;right:20px;top:5px;font-size:22px}
-
+td{white-space: nowrap;}
 /*body{overflow-x:hidden }*/
 
 </style>
@@ -317,6 +317,16 @@ function KeyCode(event){
     });
 
     // some display content information for the template
+    $('b').each(function(){
+          var info = $(this).html()
+          if(info=='Show Dialable Leads Count'){
+            $('font').each(function(){
+              var info = $(this).html()
+               $('.x_panel').html(info)
+             });
+          }
+      });
+
     if(url[0]=='7111111&script_id'){
       $('font, table, tr').each(function(){
           var info = $(this).html()
