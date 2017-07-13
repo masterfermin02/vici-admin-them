@@ -12,8 +12,7 @@
 	<link href="./vici-admin-them/theme/css/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="./vici-admin-them/theme/css/custom.css" rel="stylesheet">
-	
+    	<link href="./vici-admin-them/theme/css/custom.css" rel="stylesheet">
   </head>
   <body class="nav-md" onkeydown="KeyCode(event)">
     <div class="container body" style="display:none;" >
