@@ -34,6 +34,20 @@ For example: user_status.php, AST_agent_time_sheet.php, user_stats.php
 2. open your browser and go to http://youserveripordomian/vicidial/realtime_reportnew.php
 3. If you want you can replace the realtime_report.php with realtime_reportnew.php to open it from you admin o crear new custom link.
 
+## Feedback, Bugs, and Questions
+For any questions, feedback, and bug reports, please use the [Github Issues](https://github.com/masterfermin02/vici-admin-them/issues).
+
+## Credits
+Created by [Fermin Perdomo](https://masterfermin02.github.io/)
+Thanks to [Viciexperts](https://viciexperts.com/)
+
+## Contributions
+Contributions are welcome. Please make a pull request.
+
+## License
+This code is available under the [MIT license](http://opensource.org/licenses/MIT).
+
+
 ### it's done, have fun and enjoy.
 
 ### We still working in progress...
