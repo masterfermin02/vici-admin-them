@@ -28,6 +28,12 @@ For example: user_status.php, AST_agent_time_sheet.php, user_stats.php
 [![N|Solid](https://github.com/masterfermin02/vici-admin-them/blob/master/screen_shot/campaign.png)](https://github.com/masterfermin02/vici-admin-them/)
 [![N|Solid](https://github.com/masterfermin02/vici-admin-them/blob/master/screen_shot/dashboard.png)](https://github.com/masterfermin02/vici-admin-them/)
 [![N|Solid](http://viciexperts.com/img/portfolio/new-real-time-custom.png)](https://github.com/masterfermin02/vici-admin-them/)
-###it's done, have fun and enjoy.
+
+### Realtime theme
+1. cp realtime_reportnew.php and AST_timeonVDADallnew.php to your vicidial root folder (vicidial/AST_timeonVDADallnew.php, vicidial/realtime_reportnew.php)
+2. open your browser and go to http://youserveripordomian/vicidial/realtime_reportnew.php
+3. If you want you can replace the realtime_report.php with realtime_reportnew.php to open it from you admin o crear new custom link.
+
+### it's done, have fun and enjoy.
 
 ### We still working in progress...
