@@ -1,4 +1,4 @@
-  <head>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -20,7 +20,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="./admin.php" class="site_title"><i class="fa fa-paw"></i> <span>Vicidial!</span></a>
+              <a href="<?php echo $_SERVER['PHP_SELF'];?>" class="site_title"><i class="fa fa-paw"></i> <span>Vicidial!</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -147,6 +147,23 @@
     <script src="./vici-admin-them/theme/js/daterangepicker.js"></script>
     <script src="./vici-admin-them/theme/js/jquery.dataTables.min.js"></script>
    
+
+<!-- <script>
+    $(function(){
+        $.post('is_login.php', function(data){
+          if(data == 0){
+            window.location.href = "/vicidial/blank_page.php";
+          }
+        }).fail(function(results) {
+            if(results.status == 401){
+                window.location.href = "/vicidial/blank_page.php";
+            }
+        }).always(function(){
+            // vm.loading(false);
+        });
+    });
+</script> -->
+
 <script src="../dividize.js"></script>
 <script src="../assets/js/knockout-3.3.0.js"></script>
 <!-- urlss urls -->
