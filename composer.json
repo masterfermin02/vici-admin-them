@@ -1,15 +1,15 @@
 {
     "name": "masterfermin02/vici-admin-them",
     "description": "This is a vicidial theme to apply new design to vicidial",
-    "version": "1.0.0",
+    "version": "2.0.0",
 	"keywords": ["vicidial","theme", "jquery", "vici-them", "vici-admin-them"],
     "homepage": "https://github.com/masterfermin02/vici-admin-them",
     "license": "MIT",
     "authors": [
         {
             "name": "Fermin Perdomo",
-            "email": "fperdomo@masterfermin02.me",
-            "homepage": "https://masterfermin02.me",
+            "email": "masterfermin02@gmail.com",
+            "homepage": "https://masterfermin02.github.io",
             "role": "Full Stack Developer"
         }
     ],
