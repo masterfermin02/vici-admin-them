@@ -286,8 +286,7 @@ function KeyCode(event){
 		const MENU = 1;
 		const CONTENT = 3;
 		var mainTable = table.clone();
-		table.hide();
-		console.log(table);
+		table.remove();
 		var menuOptions = $(mainTable[MENU]).find('tbody tr').filter(filterMenu).map(mapMenu).get();
 		var menus = menuOptions.filter(function(item){ return !item.subHead});
 		var noDataTable = ['ADD=999999', 'ADD=999998', 'user='];
@@ -411,8 +410,6 @@ function KeyCode(event){
         "lengthMenu": [[25, 50, -1], [25, 50, "All"]]
        });
       
-       $('form[name="userform"]').attr("action", "admin.php")
-       $('form[name="userform"] input[value="SUBMIT"]').attr("onclick", "user_submit2()");
     }
 
 
