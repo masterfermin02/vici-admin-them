@@ -29,6 +29,13 @@ For example: user_status.php, AST_agent_time_sheet.php, user_stats.php
 [![N|Solid](https://github.com/masterfermin02/vici-admin-them/blob/master/screen_shot/dashboard.png)](https://github.com/masterfermin02/vici-admin-them/)
 [![N|Solid](http://viciexperts.com/img/portfolio/new-real-time-custom.png)](https://github.com/masterfermin02/vici-admin-them/)
 
+### Admin demo page
+[Admin demo](http://viciexperts.com/admin_demo/vicidial/admin.php)
+
+*User name* : 6666
+
+*Password* : vicidial
+
 ### Realtime theme
 1. cp realtime_reportnew.php and AST_timeonVDADallnew.php to your vicidial root folder (vicidial/AST_timeonVDADallnew.php, vicidial/realtime_reportnew.php)
 2. open your browser and go to http://youserveripordomian/vicidial/realtime_reportnew.php
@@ -39,10 +46,18 @@ For any questions, feedback, and bug reports, please use the [Github Issues](htt
 
 ## Credits
 Created by [Fermin Perdomo](https://masterfermin02.github.io/)
+
 Thanks to [Viciexperts](https://viciexperts.com/)
 
 ## Contributions
 Contributions are welcome. Please make a pull request.
+
+You can also contribut with money if you want by:
+
+[Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HAHNNB855GKCY)
+[![N|Solid](https://www.paypalobjects.com/es_XC/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HAHNNB855GKCY)
+
+
 
 ## License
 This code is available under the [MIT license](http://opensource.org/licenses/MIT).
