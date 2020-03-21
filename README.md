@@ -52,13 +52,6 @@ Thanks to [Viciexperts](https://viciexperts.com/)
 ## Contributions
 Contributions are welcome. Please make a pull request.
 
-You can also contribut with money if you want by:
-
-[Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HAHNNB855GKCY)
-[![N|Solid](https://www.paypalobjects.com/es_XC/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HAHNNB855GKCY)
-
-
-
 ## License
 This code is available under the [MIT license](http://opensource.org/licenses/MIT).
 
