@@ -32,9 +32,9 @@ For example: user_status.php, AST_agent_time_sheet.php, user_stats.php
 ### Admin demo page
 [Admin demo](http://viciexperts.com/admin_demo/vicidial/admin.php)
 
-*User name* : 6666
+*User name* : demo
 
-*Password* : vicidial
+*Password* : demo
 
 ### Realtime theme
 1. cp realtime_reportnew.php and AST_timeonVDADallnew.php to your vicidial root folder (vicidial/AST_timeonVDADallnew.php, vicidial/realtime_reportnew.php)
