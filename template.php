@@ -350,12 +350,6 @@ function KeyCode(event){
       $('#audio_chooser_span').remove()
       $('font').css({'color': '#fff'})
   }
-  //////////////////////////////////
-    
-  //////////////////////////////////
-	$("input[value=MODIFY], input[value=SUBMIT]").click(function(){
-      $("form").submit()
-      });
 
 	//call_Report error
     db = document.URL.split("?")
@@ -434,25 +428,46 @@ function KeyCode(event){
 
 
 // changing audio, moh ,voicemail functions for all items//
-    $("a").each(function(){
-    if($(this).html()==="audio chooser"){
-        var att = $(this).attr('href');  
-        chooser($(this), att, "launch_chooser", "audio_chooser2");
-      }
-      
-      if($(this).html()=="moh chooser"){
-        var att = $(this).attr('href');  
-        chooser($(this), att, "launch_moh_chooser", "launch_moh_chooser2");      
-      }
-      if($(this).html()=="voicemail chooser"){
-        var att = $(this).attr('href');  
-        chooser($(this), att, "launch_vm_chooser", "launch_vm_chooser2");      
-      }
-      
-    })
+  $("a").each(function(){
+  if($(this).html()==="audio chooser"){
+      var att = $(this).attr('href');  
+      chooser($(this), att, "launch_chooser", "audio_chooser2");
+    }
     
+    if($(this).html()=="moh chooser"){
+      var att = $(this).attr('href');  
+      chooser($(this), att, "launch_moh_chooser", "launch_moh_chooser2");      
+    }
+    if($(this).html()=="voicemail chooser"){
+      var att = $(this).attr('href');  
+      chooser($(this), att, "launch_vm_chooser", "launch_vm_chooser2");      
+    }
     
-	});
+  });
+
+  $("input[value=MODIFY], input[value=SUBMIT], input[name=submit]").click(function(){
+    var forms = $("form");
+
+    if (forms.length == 1) {
+      forms.submit()
+      return;
+    }
+
+    if ($(this).val() == 'MODIFY' && $(forms).find('input[name=ADD]').val() == 45) {
+      var row = $(this).closest('td').parent()[0];
+      var index = $(this).closest('td').parent()[0].sectionRowIndex - 1;
+      var currentForm = forms[index];
+      var $row = $(row);
+      appendField(currentForm, $row.find('input[name=attempt_delay]'));
+      appendField(currentForm, $row.find('input[name=attempt_maximum]'));
+      appendField(currentForm, $row.find('select[name=active]'));
+      currentForm.submit();
+      return;
+    }
+
+    forms.submit();
+  });   
+});
   
 </script>
 
