@@ -319,7 +319,7 @@ if ($sl_ct > 0)
 $auth=0;
 $reports_auth=0;
 $admin_auth=0;
-$auth_message = user_authorization($PHP_AUTH_USER,$PHP_AUTH_PW,'REPORTS',1);
+$auth_message = user_authorization($PHP_AUTH_USER,$PHP_AUTH_PW,'REPORTS',1, 0);
 if ($auth_message == 'GOOD')
 	{$auth=1;}
 
