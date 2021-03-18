@@ -49,6 +49,10 @@ Created by [Fermin Perdomo](https://masterfermin02.github.io/)
 
 Thanks to [Viciexperts](https://viciexperts.com/)
 
+## Sponsors
+
+- Thanks [cyburdialer](https://www.cyburdialer.com/)
+
 ## Contributions
 Contributions are welcome. Please make a pull request.
 
