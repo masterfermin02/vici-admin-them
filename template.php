@@ -369,15 +369,35 @@ function KeyCode(event){
    // here would be a for default data for urls
    // go to vici-admin-them/functions_urls carpet to see with more detail.
   //request url values
-    var urls = ["1111111111","111111111","3&user", "311111111111&server_id", "13111111111", "12", "11", "999999&stage", "999994", "161111111111", "193111111111", "31&SUB", "3511&menu_id", "3111&group_id", "10000000000", "182000000000", "3111&group_id=AGENTDIRECT", "3511&menu_id=defaultlog", "5&user", "6&user", "user=", "311111111111111", "321111111111111", "1930000000", "999999", "331111111111111", "999994", "194111111111", "194000000000", "190000000000", "31&campaign_id", "1111111", "131111111111", "131111111", "141111111111", "3111111&script_id", "140111111111", "111111111111", "182111111111", "311111111111111#screen_colors", "34&campaign_id", "311&list_id", "31111111&lead_filter_id", "3311&did_id", "1211111111", "11111111111", "12111111111", "1111111111111", "11111111111111", "181111111111", "341111111111111", "171111111111", "192111111111"];
+    var urls = ["1111111111","111111111","3&user", "311111111111&server_id", "13111111111", "12", "11", "999999&stage", "999994", "161111111111", "193111111111", "31&SUB", "3511&menu_id", "3111&group_id", "10000000000", "182000000000", "3111&group_id=AGENTDIRECT", "3511&menu_id=defaultlog", "5&user", "6&user", "user=", "311111111111111", "321111111111111", "1930000000", "999999", "331111111111111", "999994", "194111111111", "194000000000", "190000000000", "31&campaign_id", "1111111", "131111111111", "131111111", "141111111111", "3111111&script_id", "140111111111", "111111111111", "182111111111", "311111111111111#screen_colors", "34&campaign_id", "31111111&lead_filter_id", "3311&did_id", "1211111111", "11111111111", "12111111111", "1111111111111", "11111111111111", "181111111111", "341111111111111", "171111111111", "192111111111","20200213&list_id"];
 
-// getting default display to those urls
- for(urlss in urls){
+    // getting default display to those urls
+    for(urlss in urls){
       if(url[0]==urls[urlss]){
         url = "default";
         break;
-        }
+      }
     }
+
+    if (url != "default")	
+    {	
+      db2 = document.URL.split("?");
+      try {
+        var url_variables = db2[1].split("&");
+        $.each(url_variables, function( key, value ) {
+          var_arr = value.split("=");
+          if (var_arr[0]=="ADD")
+          {
+            if (var_arr[1].substring(0, 1) == "5" || var_arr[1].substring(0, 1)=="6") 
+            {
+              url = "default";	
+            }
+          }
+        });
+      } catch(err) {
+        console.log(err);
+      }
+    }	
 
     if(noDataTable.indexOf(window.location.href.split('?')[1]) == 1 || url=="default"){
 
