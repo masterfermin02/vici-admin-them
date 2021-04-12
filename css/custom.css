@@ -1,4 +1,6 @@
-
+#HelpDisplayDiv table td {
+    white-space: pre-wrap;
+}
 .phone  {
     width: 42px;
     height: 42px;
