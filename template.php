@@ -418,12 +418,13 @@ function KeyCode(event){
       listTable.attr('width','100%');
     
     var tr = listTable.find('tr').first().remove();
-      $("<tbody></tbody>").html(tr.get());
-      listTable.prepend($("<thead></thead>").html(tr.get()));
-      listTable.DataTable({
-        "lengthMenu": [[25, 50, -1], [25, 50, "All"]]
-       });
-      
+        $("<tbody></tbody>").html(tr.get());
+        listTable.prepend($("<thead></thead>").html(tr.get()));
+	try {
+		listTable.DataTable({
+			"lengthMenu": [[25, 50, -1], [25, 50, "All"]]
+	       });
+	} catch(e){}
     }
 
 
