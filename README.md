@@ -20,6 +20,8 @@ cd to your vicidial root dir
 ```
 	require("vici-admin-them/template.php");
 ```
+![carbon (3)](https://user-images.githubusercontent.com/4625540/184410043-87ce7043-c024-4dcb-9434-b19c99f99989.png)
+
 4. on each file you like the new design you need to add this line
 For example: user_status.php, AST_agent_time_sheet.php, user_stats.php
 ```
